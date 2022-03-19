@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\SizeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum'])->group(function () {
 
-   // category 
+// category 
 Route::resource('category',CategoryController::class);
+
+// brand 
 Route::resource('brand',BrandController::class);
+
+// size 
+Route::resource('size',SizeController::class);
 });
 
