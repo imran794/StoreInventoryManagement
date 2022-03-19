@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Category Create')
+@section('title','brand Create')
 
 
 @section('content')
@@ -9,13 +9,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Category</h1>
+            <h1>Brand</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ Route('dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ Route('category.index') }}">Category Index</a></li>
-              <li class="breadcrumb-item active">Category Update</li>
+              <li class="breadcrumb-item"><a href="{{ Route('brand.index') }}">Brand Index</a></li>
+              <li class="breadcrumb-item active">Brand Update</li>
             </ol>
           </div>
         </div>
@@ -30,19 +30,19 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title"> <small>Category Update</small></h3>
+                <h3 class="card-title"> <small>Brand Update</small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('category.update',$category->id) }}" method="POST">
+              <form action="{{ route('brand.update',$brand->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Category Name</label>
-                    <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" value="{{ $category->category_name }}">
-                    @if ($errors->has('category_name'))
-                      <span class="text-danger">{{ $errors->first('category_name') }}</span>
+                    <label for="exampleInputEmail1">brand Name</label>
+                    <input type="text" name="brand_name" class="form-control" id="exampleInputEmail1" value="{{ $brand->brand_name }}">
+                    @if ($errors->has('brand_name'))
+                      <span class="text-danger">{{ $errors->first('brand_name') }}</span>
                     @endif
                    
                   </div>

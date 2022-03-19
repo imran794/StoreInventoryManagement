@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Brand;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderby('created_at','desc')->get();
-        return view('category.index',compact('categories'));
+        $brands = Brand::orderby('created_at','desc')->get();
+        return view('brand.index',compact('brands'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-          return view('category.create');
+         return view('brand.create');
     }
 
     /**
@@ -36,15 +36,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'category_name'  => 'required|min:2|max:50|unique:categories'
+         $this->validate($request,[
+            'brand_name'  => 'required|min:2|max:50|unique:brands'
         ]);
 
-        $category = new Category();
-        $category->category_name = $request->category_name;
-        $category->save();
-        flash('Category Create Successfully')->success();
-        return redirect()->route('category.index');
+        $brand = new Brand();
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+        flash('Brand Create Successfully')->success();
+        return redirect()->route('brand.index');
     }
 
     /**
@@ -66,8 +66,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-         $category = Category::find($id);
-          return view('category.edit',compact('category'));
+         $brand = Brand::find($id);
+          return view('brand.edit',compact('brand'));
     }
 
     /**
@@ -80,14 +80,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request,[
-            'category_name'  => 'required|min:2|max:50|unique:categories,category_name,' .$id
+            'brand_name'  => 'required|min:2|max:50|unique:brands,brand_name,' .$id
         ]);
 
-        $category = Category::find($id);
-        $category->category_name = $request->category_name;
-        $category->save();
-        flash('Category Update Successfully')->success();
-        return redirect()->route('category.index');
+        $brand = Brand::find($id);
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+        flash('Brand Update Successfully')->success();
+        return redirect()->route('brand.index');
     }
 
     /**
@@ -98,9 +98,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        flash('Category Deleted Successfully')->success();
+         $brand = Brand::find($id);
+         $brand->delete();
+        flash('Brand Deleted Successfully')->success();
         return redirect()->back();
     }
 }

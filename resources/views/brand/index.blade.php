@@ -14,12 +14,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Category</h1>
+            <h1>Brand</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ Route('dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item active">Category</li>
+              <li class="breadcrumb-item active">Brand</li>
             </ol>
           </div>
         </div>
@@ -32,9 +32,9 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Category List </h3><br>
-                <a style="margin-top:10px " href="{{ route('category.create') }}" class="btn btn-primary btn-sm">
-                  <i class="fa fa-plus">Add Category</i>
+                <h3 class="card-title">Brand List </h3><br>
+                <a style="margin-top:10px " href="{{ route('brand.create') }}" class="btn btn-primary btn-sm">
+                  <i class="fa fa-plus">Add Brand</i>
                 </a>
               </div>
               <!-- /.card-header -->
@@ -43,7 +43,7 @@
                   <thead>
                   <tr>
                     <th>SL</th>
-                    <th>Category Name</th>
+                    <th>Brand Name</th>
                     <th>Action</th>
                   </tr>
 
@@ -51,16 +51,16 @@
 
                   <tbody>
                   <tr>
-                    @foreach($categories as $key=>$category)
+                    @foreach($brands as $key=>$brand)
                     <td>{{ ++$key }}</td>
-                    <td>{{ $category->category_name }}</td>
+                    <td>{{ $brand->brand_name }}</td>
                     <td>
-                      <a href="{{ route('category.edit',$category->id) }}" class="btn btn-sm btn-primary">
+                      <a href="{{ route('brand.edit',$brand->id) }}" class="btn btn-sm btn-primary">
                         <i class="fa fa-edit"></i>
                       Edit</a>
-                      <a href="javascript:;" class="btn btn-danger btn-sm sa-delete" data-form-id="delete-form-{{ $category->id }}"> <i class="fa fa-trash"></i> Delete</a>
+                      <a href="javascript:;" class="btn btn-danger btn-sm sa-delete" data-form-id="delete-form-{{ $brand->id }}"> <i class="fa fa-trash"></i> Delete</a>
 
-                      <form id="delete-form-{{ $category->id }}" action="{{ route('category.destroy',$category->id) }}" method="POST">
+                      <form id="delete-form-{{ $brand->id }}" action="{{ route('brand.destroy',$brand->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         
