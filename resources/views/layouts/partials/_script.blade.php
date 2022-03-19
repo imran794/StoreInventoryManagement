@@ -3,5 +3,8 @@
 <script src="{{ asset('dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dashboard/dist/js/adminlte.min.js') }}"></script>
+<script>
+$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 
 @stack('js')
